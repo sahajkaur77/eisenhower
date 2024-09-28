@@ -5,21 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eisenhower Matrix</title>
     <link rel="stylesheet" href="style.css">
-
-    
 </head>
 <body>
-    
     <h1 id="h12">Eisenhower Matrix</h1>
     <div class="matrix-container">
         <div class="quadrant urgent-important">Urgent & Important</div>
         <div class="quadrant important-not-urgent">Important, Not Urgent</div>
         <div class="quadrant urgent-not-important">Urgent, Not Important</div>
         <div class="quadrant not-urgent-not-important">Not Urgent, Not Important</div>
-        <button class="add-button">+</button>
+        <button class="add-button" onclick="showInputPopup()">+</button>
     </div>
-    <script src="eisen.js">
-    </script>
+
+    <div id="inputPopup" class="popup">
+        <textarea id="taskInput" placeholder="Enter task details"></textarea>
+         <button onclick="closePopup()">Cancel</button>
+    </div>
+
+    <script src="eisen.js"></script>
 </body>
 </html>
-

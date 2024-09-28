@@ -2,7 +2,7 @@ body {
     background-color: #f0f0f0;
     display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     height: 100vh;
 }
@@ -10,7 +10,7 @@ body {
 h1 {
     text-align: center;
     margin-bottom: 20px;
-}   
+}
 
 .matrix-container {
     position: relative;
@@ -19,7 +19,7 @@ h1 {
     width: 60%;
     height: 60%;
     gap: 2px;
-    /* margin: 0 auto;  */
+    /* margin: 0 auto; */
 }
 
 .quadrant {
@@ -49,14 +49,35 @@ h1 {
 }
 
 .add-button {
-    position: absolute; 
-    top: 49%; 
-    left: 48%; 
-    transform: translate(-50%, -50%); 
+    position: absolute;
+    top: 49%;
+    left: 48%;
+    transform: translate(-50%, -50%);
     background-color: black;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    cursor: pointer; 
+    cursor: pointer;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 1000;
+    
+}
+
+.popup textarea {
+    width: 60%;
+    height: 60px;
+    padding: 5px;
+    border: 1px solid #ccc;
 }
