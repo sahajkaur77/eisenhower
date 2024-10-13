@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eisenhower Matrix</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eisenhower Matrix</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 </head>
 <body>
-    <h1 id="h12">Eisenhower Matrix</h1>
-    <div class="matrix-container">
-        <div class="quadrant urgent-important">Urgent & Important</div>
-        <div class="quadrant important-not-urgent">Important, Not Urgent</div>
-        <div class="quadrant urgent-not-important">Urgent, Not Important</div>
-        <div class="quadrant not-urgent-not-important">Not Urgent, Not Important</div>
-        <button class="add-button" onclick="showInputPopup()">+</button>
-    </div>
+  <h1 id="h12">Eisenhower Matrix</h1>
+  <div class="matrix-container">
+    <div class="quadrant urgent-important">Urgent & Important</div>
+    <div class="quadrant important-not-urgent">Important, Not Urgent</div>
+    <div class="quadrant urgent-not-important">Urgent, Not Important</div>
+    <div class="quadrant not-urgent-not-important">Not Urgent, Not Important</div>
+    <button class="add-button" onclick="showInputPopup()">
+      <i class="fas fa-plus"></i>
+    </button>
+  </div>
 
-    <div id="inputPopup" class="popup">
-        <textarea id="taskInput" placeholder="Enter task details"></textarea>
-         <button onclick="closePopup()">Cancel</button>
+  <div id="inputPopup" class="popup">
+    <textarea id="taskInput" placeholder="Enter task details"></textarea>
+    <div class="datetime-picker">
+      <input type="date" id="taskDate">
+      <input type="time" id="taskTime">
     </div>
+    <button onclick="closePopup()">
+      <i class="fa-solid fa-xmark" style="color: #c81e1e;"></i>
+    </button>
+    <button onclick="playButton()"> <i class="fas fa-play"></i> </button>
+  </div>
 
-    <script src="eisen.js"></script>
+  <script src="eisen.js"></script>
 </body>
 </html>

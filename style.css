@@ -19,7 +19,6 @@ h1 {
     width: 60%;
     height: 60%;
     gap: 2px;
-    /* margin: 0 auto; */
 }
 
 .quadrant {
@@ -59,6 +58,7 @@ h1 {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: x-large;
 }
 
 .popup {
@@ -83,37 +83,54 @@ h1 {
     align-items: center;
 }
 .popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border: 1px solid black;
-    border-radius: 10px;
-    z-index: 1000;
-    animation: popup-show 0.3s ease-in-out forwards;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  z-index: 1000;
+  animation: popup-show 0.3s ease-in-out forwards;
+}
+
+@keyframes popup-show {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
   }
-  
-  @keyframes popup-show {
-    0% {
-      opacity: 0;
-      transform: translate(-50%, -50%) scale(0.5);
-    }
-    100% {
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1);
-    }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
   }
-  
-  @keyframes popup-hide {
-    0% {
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1);
-    }
-    100% {
-      opacity: 0;
-      transform: translate(-50%, -50%) scale(0.5);
-    }
+}
+
+@keyframes popup-hide {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
   }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+}
+
+.popup button {
+  margin-left: 10px;
+}
+
+
+.datetime-picker {
+  display: flex;
+  margin-top: 10px;
+}
+
+.datetime-picker input[type="date"],
+.datetime-picker input[type="time"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  margin-right: 5px;
+}
