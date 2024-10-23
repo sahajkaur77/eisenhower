@@ -21,3 +21,8 @@ function showInputPopup() {
       document.getElementById("inputPopup").style.display = "none";
     }, 300);
   }
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      closePopup();
+    }
+  });

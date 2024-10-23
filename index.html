@@ -20,6 +20,20 @@
   </div>
 
   <div id="inputPopup" class="popup">
+    <select id="quadrantSelect">
+      <option value="urgent-important">
+        <i class="fas fa-exclamation-triangle"></i> Urgent & Important
+      </option>
+      <option value="important-not-urgent">
+        <i class="fas fa-star"></i> Important, Not Urgent
+      </option>
+      <option value="urgent-not-important">
+        <i class="fas fa-clock"></i> Urgent, Not Important
+      </option>
+      <option value="not-urgent-not-important">
+        <i class="fas fa-hourglass-empty"></i> Not Urgent, Not Important
+      </option>
+    </select>
     <textarea id="taskInput" placeholder="Enter task details"></textarea>
     <div class="datetime-picker">
       <input type="date" id="taskDate">
