@@ -17,7 +17,9 @@
     <button class="add-button" onclick="showInputPopup()">
       <i class="fas fa-plus"></i>
     </button>
+    
   </div>
+  
 
   <div id="inputPopup" class="popup">
     <select id="quadrantSelect">
@@ -28,7 +30,7 @@
         <i class="fas fa-star"></i> Important, Not Urgent
       </option>
       <option value="urgent-not-important">
-        <i class="fas fa-clock"></i> Urgent, Not Important
+        <i class="fas fa-clock"></i> Urgent, Not Urgent
       </option>
       <option value="not-urgent-not-important">
         <i class="fas fa-hourglass-empty"></i> Not Urgent, Not Important
@@ -36,13 +38,19 @@
     </select>
     <textarea id="taskInput" placeholder="Enter task details"></textarea>
     <div class="datetime-picker">
-      <input type="date" id="taskDate">
-      <input type="time" id="taskTime">
+      <div class="date-picker">
+        <i class="fas fa-calendar-alt"></i>
+        <input type="date" id="taskDate">
+      </div>
+      <div class="time-picker">
+        <i class="fas fa-clock"></i>
+        <input type="time" id="taskTime">
+      </div>
+      <button onclick="closePopup()">
+        <i class="fa-solid fa-xmark" style="color: #c81e1e;"></i>
+      </button>
+      <button onclick="playButton()"> <i class="fas fa-play"></i> </button>
     </div>
-    <button onclick="closePopup()">
-      <i class="fa-solid fa-xmark" style="color: #c81e1e;"></i>
-    </button>
-    <button onclick="playButton()"> <i class="fas fa-play"></i> </button>
   </div>
 
   <script src="eisen.js"></script>
