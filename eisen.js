@@ -1,10 +1,35 @@
-function helloWorldOfMaxi() {
-  console.log('hello world of maxi');
+// TODO: Do this later when project is ready
+// fetch('config/config.json')
+//   .then((response) => response.json())
+//   .then((config) => {
+//     const loginForm = document.getElementById('loginForm');
+//     const eisenhowerMatrix = document.getElementById('eisenhowerMatrix');
+
+//     if (config.enableOTP) {
+//       loginForm.style.display = 'block'; // Show login form
+//       eisenhowerMatrix.style.display = 'none'; // Hide matrix
+//     } else {
+//       loginForm.style.display = 'none'; // Hide login form
+//       eisenhowerMatrix.style.display = 'flex'; // Show matrix
+//     }
+//   })
+//   .catch((error) => console.error('Error loading config:', error));
+
+// Check for OTP feature enabled or not
+var config = {
+  enableOTP: false,
+};
+if (config.enableOTP) {
+  loginForm.style.display = 'block'; // Show login form
+  eisenhowerMatrix.style.display = 'none'; // Hide matrix
+} else {
+  loginForm.style.display = 'none'; // Hide login form
+  eisenhowerMatrix.style.display = 'flex'; // Show matrix
 }
+// Above block needs to be removed when running live
 
 var element = document.getElementById('h12');
 element.innerHTML = 'Eisenhower Matrix';
-helloWorldOfMaxi();
 
 function showInputPopup() {
   document.getElementById('inputPopup').style.display = 'none';
