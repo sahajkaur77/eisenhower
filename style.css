@@ -1,78 +1,126 @@
-body {
-    background-color: #f0f0f0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+/* Center the form on the page */
+#loginForm {
+  max-width: 300px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin-top: 100px;
+}
+
+#loginForm label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+#loginForm input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#loginForm button {
+  width: 100%;
+  padding: 8px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#loginForm button:hover {
+  background-color: #45a049;
+}
+
+/* body {
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+} */
+/* Hide the Eisenhower Matrix initially */
+#eisenhowerMatrix {
+  display: none;
+  background-color: #f0f0f0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 h1 {
-    text-align: center;
-    margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .matrix-container {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    width: 60%;
-    height: 60%;
-    gap: 2px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+  height: 60%;
+  gap: 2px;
 }
 
 .quadrant {
-    width: 48%;
-    height: 48%;
-    border: 1px solid black;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 48%;
+  height: 48%;
+  border: 1px solid black;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .urgent-important {
-    background-color: lightblue;
+  background-color: lightblue;
 }
 
 .important-not-urgent {
-    background-color: lightgoldenrodyellow;
+  background-color: lightgoldenrodyellow;
 }
 
 .urgent-not-important {
-    background-color: lightgrey;
+  background-color: lightgrey;
 }
 
 .not-urgent-not-important {
-    background-color: lightcyan;
+  background-color: lightcyan;
 }
 
 .add-button {
-    position: absolute;
-    top: 49%;
-    left: 48%;
-    transform: translate(-50%, -50%);
-    background-color: black;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: x-large;
+  position: absolute;
+  top: 49%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: x-large;
 }
 
 .popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border: 1px solid black;
-    border-radius: 10px;
-    z-index: 1000;
-    
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  z-index: 1000;
 }
 
 .popup textarea {
@@ -80,7 +128,8 @@ h1 {
   height: 80px;
   padding: 5px;
   border: 1px grey;
-  resize: none;}
+  resize: none;
+}
 .popup {
   display: none;
   position: fixed;
@@ -127,20 +176,21 @@ h1 {
   }
 }
 .quadrant-button {
-  background-color: transparent; 
+  background-color: transparent;
   border: none;
-  padding: 0; 
+  padding: 0;
   cursor: pointer;
-  display: flex; 
+  display: flex;
   align-items: center;
-}.play-button, .cancel-button {
-  margin-left: 80px; 
+}
+.play-button,
+.cancel-button {
+  margin-left: 80px;
 }
 
 .popup button {
   margin-left: 10px;
 }
-
 
 .datetime-picker {
   display: flex;
@@ -152,7 +202,7 @@ h1 {
   align-items: center;
   padding-right: 5px;
 }
-.date-picker input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+.date-picker input[type='datetime-local']::-webkit-calendar-picker-indicator {
   display: none; /* Hide the date picker icon */
 }
 
