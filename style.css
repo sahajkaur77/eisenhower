@@ -209,3 +209,8 @@ h1 {
 .datetime-picker .date-picker i {
   margin-right: 5px;
 }
+
+.blur-background {
+  filter: blur(2px);
+  pointer-events: none;
+}

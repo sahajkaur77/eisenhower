@@ -15,24 +15,24 @@ app.post('/send-otp', (req, res) => {
   // Store OTP in a temporary store, or ideally a database
   otpStore[phoneNumber] = otp;
 
-  client.messages
-    .create({
-      body: `Your OTP code is ${otp}`,
-      from: twilioPhoneNumber,
-      to: phoneNumber,
-    })
-    .then((message) => {
-      console.log(`Message sent to ${phoneNumber} with SID ${message.sid}`);
-      res.json({ success: true, message: 'OTP sent via SMS' });
-    })
-    .catch((error) => {
-      console.error('Error sending OTP via Twilio:', error);
-      res.status(500).json({ success: false, message: 'Failed to send OTP' });
-    });
+  //   client.messages
+  //     .create({
+  //       body: `Your OTP code is ${otp}`,
+  //       from: twilioPhoneNumber,
+  //       to: phoneNumber,
+  //     })
+  //     .then((message) => {
+  //       console.log(`Message sent to ${phoneNumber} with SID ${message.sid}`);
+  //       res.json({ success: true, message: 'OTP sent via SMS' });
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error sending OTP via Twilio:', error);
+  //       res.status(500).json({ success: false, message: 'Failed to send OTP' });
+  //     });
 
   // Simulate sending OTP (implement SMS API here)
   console.log(`OTP for ${phoneNumber}: ${otp}`);
-  //   res.json({ success: true, message: 'OTP sent' });
+  res.json({ success: true, message: 'OTP sent' });
 });
 
 // Endpoint to verify OTP

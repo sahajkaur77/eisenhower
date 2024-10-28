@@ -40,6 +40,7 @@ function showInputPopup() {
   document.getElementById('taskInput').value = '';
   const taskText = document.getElementById('taskInput').value;
   const selectedQuadrant = document.getElementById('quadrantSelect').value;
+  document.querySelector('.matrix-container').classList.add('blur-background');
 }
 
 function closePopup() {
@@ -48,6 +49,9 @@ function closePopup() {
   setTimeout(function () {
     document.getElementById('inputPopup').style.display = 'none';
   }, 300);
+  document
+    .querySelector('.matrix-container')
+    .classList.remove('blur-background');
 }
 
 document.addEventListener('keydown', function (event) {
