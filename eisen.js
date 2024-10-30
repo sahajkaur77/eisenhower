@@ -134,3 +134,64 @@ async function verifyOTP() {
     alert('Invalid OTP');
   }
 }
+function addTask(taskText, quadrant, taskDate = "", taskTime = "") {
+  // Create the task element
+  const taskElement = document.createElement("div");
+  taskElement.classList.add("task");
+  taskElement.style.fontSize = "0.8rem"; // Set smaller font size for the text
+
+  // Create a bullet element with a separate container for the text
+  const bulletContainer = document.createElement("span");
+  bulletContainer.classList.add("bullet-container");
+  const bullet = document.createElement("span");
+  bullet.classList.add("bullet");
+  bullet.innerText = "*"; // Black bullet
+  bulletContainer.appendChild(bullet);
+
+  const taskTextElement = document.createElement("span");
+  taskTextElement.classList.add("task-text");
+  taskTextElement.innerText = taskText;
+
+  // Append bullet and text to the task element
+  taskElement.appendChild(bulletContainer);
+  taskElement.appendChild(taskTextElement);
+
+  // Add due date and time (if provided)
+  if (taskDate && taskTime) {
+    const dueDateElement = document.createElement("span");
+    dueDateElement.classList.add("due-date");
+    dueDateElement.innerText = `${taskDate} ${taskTime}`;
+    taskElement.appendChild(dueDateElement);
+  }
+
+  // Find the target quadrant element
+  const targetQuadrant = document.querySelector(`.quadrant.${quadrant}`);
+
+  // Get the existing tasks in the quadrant (if any)
+  const existingTasks = targetQuadrant.querySelectorAll(".task");
+
+  // Insert the task element at the bottom of the quadrant
+  if (existingTasks.length > 0) {
+    targetQuadrant.insertBefore(taskElement, existingTasks[existingTasks.length]); // Insert after the last existing task
+  } else {
+    targetQuadrant.appendChild(taskElement); // Append if no tasks exist
+  }
+}
+function playButton() {
+  // Get the task details
+  const taskText = document.getElementById("taskInput").value;
+  const selectedQuadrant = document.getElementById("quadrantSelect").value;
+  const taskDate = document.getElementById("taskDate").value;
+  const taskTime = document.getElementById("taskTime").value;
+
+  // Add the task to the matrix
+  addTask(taskText, selectedQuadrant, taskDate, taskTime);
+
+  // (Optional) Clear the input fields
+  document.getElementById("taskInput").value = "";
+  document.getElementById("taskDate").value = "";
+  document.getElementById("taskTime").value = "";
+
+  // Close the popup
+  closePopup();
+}

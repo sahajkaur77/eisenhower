@@ -77,8 +77,11 @@ h1 {
   border-radius: 20px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  font-size: 1.3em;
+  font-weight: bold;
 }
+
 
 .urgent-important {
   background-color: lightblue;
@@ -214,3 +217,17 @@ h1 {
   filter: blur(2px);
   pointer-events: none;
 }
+.bullet-container {
+  display: flex;
+  align-items: flex-start;
+  margin-right: 5px; 
+}
+
+.bullet {
+  font-size: 2rem; 
+}
+
+.quadrant {
+ 
+  padding-bottom: 10px; 
+gap: 10px;}
