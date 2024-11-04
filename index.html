@@ -1,82 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eisenhower Matrix</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eisenhower Matrix</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
-</head>
-
-<body>
-  <!--OTP login form-->
-  <div id="loginForm">
-    <label for="phone"></label>
-    <input type="text" id="phone" placeholder="Enter your phone number" />
-    <button onclick="sendOTP()">Send OTP</button>
-    <br />
-    <label for="otp"></label>
-    <input type="text" id="otp" placeholder="Enter OTP" />
-    <button onclick="verifyOTP()">Login</button>
-  </div>
-  <!--OTP ends-->
-  <div id="eisenhowerMatrix">
-    <h1 id="h12">Eisenhower Matrix</h1>
-    <div class="matrix-container">
-      <div class="quadrant urgent-important">
-        <div class="quadrant-heading"> Urgent & Important</div>
-      </div>
-      <div class="quadrant important-not-urgent">
-        <div class="quadrant-heading">Important, Not Urgent</div>
-      </div>
-      <div class="quadrant urgent-not-important">
-        <div class="quadrant-heading">Urgent, Not Important</div>
-      </div>
-      <div class="quadrant not-urgent-not-important">
-       <div class="quadrant-heading"> Not Urgent, Not Important</div>
-      </div>
-      <button class="add-button" onclick="showInputPopup()">
-        <i class="fas fa-plus"></i>
-      </button>
+  <body>
+    <!--OTP login form-->
+    <div id="loginForm">
+      <label for="phone"></label>
+      <input type="text" id="phone" placeholder="Enter your phone number" />
+      <button onclick="sendOTP()">Send OTP</button>
+      <br />
+      <label for="otp"></label>
+      <input type="text" id="otp" placeholder="Enter OTP" />
+      <button onclick="verifyOTP()">Login</button>
     </div>
-
-    <div id="inputPopup" class="popup">
-      <select id="quadrantSelect">
-        <option value="urgent-important">
-          <i class="fas fa-exclamation-triangle"></i> Urgent & Important
-        </option>
-        <option value="important-not-urgent">
-          <i class="fas fa-star"></i> Important, Not Urgent
-        </option>
-        <option value="urgent-not-important">
-          <i class="fas fa-clock"></i> Urgent, Not Urgent
-        </option>
-        <option value="not-urgent-not-important">
-          <i class="fas fa-hourglass-empty"></i> Not Urgent, Not Important
-        </option>
-      </select>
-      <textarea id="taskInput" placeholder="Enter task details"></textarea>
-      <div class="datetime-picker">
-        <div class="date-picker">
-          <i class="fas fa-calendar-alt"></i>
-          <input type="date" id="taskDate" />
+    <!--OTP ends-->
+    <div id="eisenhowerMatrix">
+      <h1 id="h12">Eisenhower Matrix</h1>
+      <div class="matrix-container">
+        <div class="quadrant urgent-important">
+          <div class="quadrant-heading">Urgent & Important</div>
         </div>
-        <div class="time-picker">
-          <i class="fas fa-clock"></i>
-          <input type="time" id="taskTime" />
+        <div class="quadrant important-not-urgent">
+          <div class="quadrant-heading">Important, Not Urgent</div>
         </div>
-        <button onclick="closePopup()">
-          <i class="fa-solid fa-xmark" style="color: #c81e1e"></i>
-        </button>
-        <button onclick="addTaskToQuadrant()">
-          <i class="fas fa-play"></i>
+        <div class="quadrant urgent-not-important">
+          <div class="quadrant-heading">Urgent, Not Important</div>
+        </div>
+        <div class="quadrant not-urgent-not-important">
+          <div class="quadrant-heading">Not Urgent, Not Important</div>
+        </div>
+        <button class="add-button" onclick="showInputPopup()">
+          <i class="fas fa-plus"></i>
         </button>
       </div>
+
+      <div id="inputPopup" class="popup">
+        <!-- Replace the select dropdown with an icon button -->
+        <button id="quadrantButton" class="quadrant-button">
+          <i class="fas fa-exclamation-triangle"></i>
+          <!-- Default icon -->
+        </button>
+
+        <!-- Original dropdown that will be shown on button click -->
+        <select id="quadrantSelect" style="display: none">
+          <option value="urgent-important">Urgent & Important</option>
+          <option value="important-not-urgent">Important, Not Urgent</option>
+          <option value="urgent-not-important">Urgent, Not Important</option>
+          <option value="not-urgent-not-important">
+            Not Urgent, Not Important
+          </option>
+        </select>
+
+        <textarea id="taskInput" placeholder="Enter task details"></textarea>
+        <!-- Additional input fields and buttons -->
+
+        <div class="datetime-picker">
+          <div class="date-picker">
+            <i class="fas fa-calendar-alt"></i>
+            <input type="date" id="taskDate" />
+          </div>
+          <div class="time-picker">
+            <i class="fas fa-clock"></i>
+            <input type="time" id="taskTime" />
+          </div>
+          <button onclick="closePopup()">
+            <i class="fa-solid fa-xmark" style="color: #c81e1e"></i>
+          </button>
+          <button onclick="addTaskToQuadrant()">
+            <i class="fas fa-play"></i>
+          </button>
+        </div>
+      </div>
+
+      <script src="eisen.js"></script>
     </div>
-
-    <script src="eisen.js"></script>
-  </div>
-</body>
-
+  </body>
 </html>

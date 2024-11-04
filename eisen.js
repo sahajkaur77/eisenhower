@@ -59,6 +59,7 @@ document.addEventListener('keydown', function (event) {
     closePopup();
   }
 });
+
 function showQuadrantList() {
   quadrantSelect.style.display = 'block';
 }
@@ -75,18 +76,40 @@ function hideQuadrantList() {
   });
 }
 
-quadrantButton.addEventListener('click', function () {
-  if (quadrantSelect.style.display === 'none') {
-    showQuadrantList();
-  } else {
-    hideQuadrantList();
-  }
-});
-quadrantSelect.addEventListener('change', function () {
-  const selectedValue = this.value;
-  const iconClass = `fas fa-${selectedValue.split('-')[0]}`;
-  quadrantButton.querySelector('i').className = iconClass;
-});
+// quadrantButton.addEventListener('click', function () {
+//   if (quadrantSelect.style.display === 'none') {
+//     showQuadrantList();
+//   } else {
+//     hideQuadrantList();
+//   }
+// });
+// quadrantSelect.addEventListener('change', function () {
+//   const selectedValue = this.value;
+//   const iconClass = `fas fa-${selectedValue.split('-')[0]}`;
+//   quadrantButton.querySelector('i').className = iconClass;
+// });
+
+// Show or hide the dropdown when the icon button is clicked
+document
+  .getElementById('quadrantButton')
+  .addEventListener('click', function () {
+    const quadrantSelect = document.getElementById('quadrantSelect');
+    if (quadrantSelect.style.display === 'none') {
+      quadrantSelect.style.display = 'block'; // Show dropdown
+    } else {
+      quadrantSelect.style.display = 'none'; // Hide dropdown
+    }
+  });
+
+// Change the icon when a quadrant is selected
+document
+  .getElementById('quadrantSelect')
+  .addEventListener('change', function () {
+    const selectedValue = this.value;
+    const iconClass = `fas fa-${selectedValue.split('-')[0]}`; // e.g., 'fa-exclamation-triangle'
+    document.querySelector('#quadrantButton i').className = iconClass;
+    this.style.display = 'none'; // Hide dropdown after selection
+  });
 
 async function sendOTP() {
   const phoneNumber = document.getElementById('phone').value;

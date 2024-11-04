@@ -292,3 +292,11 @@ h1 {
   filter: blur(2px);
   pointer-events: none;
 }
+.quadrantSelect {
+  position: absolute;
+  z-index: 1000; /* Ensure dropdown appears on top */
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 150px;
+}
