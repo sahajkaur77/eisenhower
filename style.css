@@ -62,49 +62,50 @@ h1 {
   font-family: verdana, sans-serif;
 }
 
+/* Matrix container setup for 2x2 grid layout */
 .matrix-container {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns */
+  grid-template-rows: 1fr 1fr; /* Two rows */
+  gap: 5px; /* Space between quadrants */
   width: 60%;
   height: 60%;
-  gap: 2px;
+  margin: 0 auto; /* Center container on the page */
 }
 
+/* Each quadrant setup */
 .quadrant {
-  width: 48%;
-  height: 48%;
   border: 1px solid black;
   border-radius: 20px;
-  /* display: flex; */
-  justify-content: center;
-  /* align-items: flex-start; */
+  display: flex;
+  flex-direction: column; /* Stack heading and task list vertically */
+  align-items: center; /* Center heading horizontally */
+  justify-content: flex-start; /* Align items at the top */
+  padding: 10px; /* Optional: padding for inner spacing */
   font-size: 1.2em;
-  /* Increase font size */
   font-weight: bold;
-  /* Make text bold */
-
+  overflow: hidden; /* Prevent content from overflowing */
 }
 
+/* Center the heading at the top of the quadrant */
 .quadrant-heading {
   text-align: center;
-  margin-bottom: 10px;
   font-size: 1.2em;
   font-weight: bold;
-  font-family: verdana, sans-serif;
+  font-family: Verdana, sans-serif;
+  width: 100%; /* Ensures it spans the width of the quadrant */
+  margin: 0; /* Remove default margin */
+  padding-bottom: 10px; /* Space below heading */
 }
 
+/* Style for the task list to align items to the left */
 .task-list {
-  list-style-type: none;
-  padding: 0 10px;
-  /* Padding to align left */
-  margin-top: 5px;
-  max-height: 150px;
-  /* Set a maximum height for scrollable area */
-  overflow-y: auto;
-  /* Enable vertical scrolling */
-  width: 100%;
-  /* Ensure the task list takes full width of quadrant */
+  list-style-type: none; /* Remove default bullets */
+  padding: 0 10px; /* Aligns tasks with left padding */
+  margin: 0; /* Reset default margin */
+  max-height: 150px; /* Limit height to make it scrollable */
+  overflow-y: auto; /* Enable vertical scrolling */
+  width: 100%; /* Ensure the task list spans the full width */
 }
 
 /* Optional: Add custom scrollbar styles */
@@ -166,8 +167,8 @@ h1 {
 
 .add-button {
   position: absolute;
-  top: 49%;
-  left: 48%;
+  top: 55%;
+  left: 50%;
   transform: translate(-50%, -50%);
   background-color: black;
   color: white;
@@ -175,8 +176,8 @@ h1 {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: x-large;
-}
+  font-size: x-large;}
+
 
 .popup {
   display: none;
