@@ -169,6 +169,13 @@ function addTaskToQuadrant() {
   const taskLabel = document.createElement('label');
   taskLabel.textContent = taskDetails;
   taskLabel.classList.add('task-label');
+  checkbox.addEventListener('change', function () {
+    if (checkbox.checked) {
+      taskLabel.classList.add('completed');
+    } else {
+      taskLabel.classList.remove('completed');
+    }
+  });
 
   // Append checkbox and label to the task item
   taskItem.appendChild(checkbox);
