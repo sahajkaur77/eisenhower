@@ -32,7 +32,9 @@ var element = document.getElementById('h12');
 element.innerHTML = 'Eisenhower Matrix';
 
 function showInputPopup() {
-  document.getElementById('inputPopup').style.display = 'none';
+  document.getElementById("inputPopup").style.display = "block";
+  document.getElementById("taskInput").focus(); // Focus on task input for easy typing
+
   document.getElementById('inputPopup').style.animation =
     'popup-show 0.3s ease-in-out forwards';
   document.getElementById('inputPopup').style.display = 'block';
@@ -213,3 +215,17 @@ function addTaskToQuadrant() {
   document.getElementById('taskTime').value = '';
   closePopup(); // Optional: Close the popup after submitting
 }
+document
+  .getElementById('taskInput')
+  .addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+      event.preventDefault(); // Prevent form submission if inside a form
+      addTaskToQuadrant(); // Call the function to add the task
+    }
+  });
+document.addEventListener('keydown', function (event) {
+  if (event.ctrlKey && event.altKey && event.key === 'j') {
+    event.preventDefault(); // Prevent any default action for this key combination
+    showInputPopup(); // Show the input popup
+  }
+});
