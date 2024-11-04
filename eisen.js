@@ -165,6 +165,9 @@ function addTaskToQuadrant() {
   // Get values from the input form
   const quadrant = document.getElementById('quadrantSelect').value;
   const taskDetails = document.getElementById('taskInput').value;
+  const taskDate = document.getElementById('taskDate').value; // Ensure we're using `.value`
+  const taskTime = document.getElementById('taskTime').value; // Ensure we're using `.value`
+
 
   // Ensure task details are not empty
   if (taskDetails.trim() === '') {
@@ -194,6 +197,17 @@ function addTaskToQuadrant() {
   const taskLabel = document.createElement('label');
   taskLabel.textContent = taskDetails;
   taskLabel.classList.add('task-label');
+
+
+  const dateTimeSpan = document.createElement('span');
+  dateTimeSpan.textContent = `${taskDate} ${taskTime}`;
+  dateTimeSpan.classList.add('date-time');
+
+  const taskContentDiv = document.createElement('div');
+  taskContentDiv.classList.add('task-content');
+  taskContentDiv.appendChild(taskLabel);
+  taskContentDiv.appendChild(dateTimeSpan);
+
   checkbox.addEventListener('change', function () {
     if (checkbox.checked) {
       taskLabel.classList.add('completed');
@@ -205,6 +219,7 @@ function addTaskToQuadrant() {
   // Append checkbox and label to the task item
   taskItem.appendChild(checkbox);
   taskItem.appendChild(taskLabel);
+  taskItem.appendChild(dateTimeSpan);
 
   // Append the new task item to the task list
   taskList.appendChild(taskItem);
@@ -243,3 +258,24 @@ document.querySelector('.calendar-icon').addEventListener('click', function () {
 document.querySelector('.time-icon').addEventListener('click', function () {
   document.getElementById('taskTime').focus();
 });
+const dateInput = document.getElementById('taskDate');
+const timeInput = document.getElementById('taskTime');
+const dateTimeDisplay = document.getElementById('dateTimeDisplay');
+
+// Function to update the display with selected date and time
+function updateDateTimeDisplay() {
+  const selectedDate = dateInput.value;
+  const selectedTime = timeInput.value;
+
+  // Format the display text
+  const displayText = `${selectedDate || 'No Date'} ${
+    selectedTime || 'No Time'
+  }`;
+
+  // Set the text content of the display element
+  dateTimeDisplay.textContent = displayText;
+}
+
+// Add event listeners to update display when date or time is selected
+dateInput.addEventListener('change', updateDateTimeDisplay);
+timeInput.addEventListener('change', updateDateTimeDisplay);

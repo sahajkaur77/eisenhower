@@ -143,6 +143,7 @@ h1 {
 .task-label {
   font-weight: normal;
   color: #333;
+  flex-grow: 1;
 }
 
 .task-label.completed {
@@ -339,6 +340,12 @@ h1 {
   cursor: pointer;
 }
 
+.task-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 /* Style for the time icon container */
 .time-icon {
   display: inline-block;
@@ -359,8 +366,19 @@ h1 {
   font-size: 20px;
 }
 #inputPopup {
-  width:20%;
+  width: 20%;
 }
 #taskInput {
-  width:100%;
+  width: 100%;
+}
+.task-item {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.date-time {
+  font-size: 0.9em;
+  color: #555;
+  text-align: right;
 }
