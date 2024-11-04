@@ -214,3 +214,29 @@ h1 {
   filter: blur(2px);
   pointer-events: none;
 }
+
+/* Style for the task list inside quadrants */
+.task-list {
+  list-style-type: none; /* Remove default bullet points */
+  padding: 10px;
+  margin-top: 10px;
+}
+
+/* Style each task item */
+.task-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 1em;
+}
+
+/* Style for the checkbox */
+.task-checkbox {
+  margin-right: 10px;
+}
+
+/* Style for the task label */
+.task-label {
+  font-weight: normal;
+  color: #333;
+}

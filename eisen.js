@@ -134,3 +134,52 @@ async function verifyOTP() {
     alert('Invalid OTP');
   }
 }
+
+// Task Addtion section
+function addTaskToQuadrant() {
+  // Get values from the input form
+  const quadrant = document.getElementById('quadrantSelect').value;
+  const taskDetails = document.getElementById('taskInput').value;
+
+  // Ensure task details are not empty
+  if (taskDetails.trim() === '') {
+    alert('Please enter a task description.');
+    return;
+  }
+
+  // Find the quadrant div
+  const quadrantDiv = document.querySelector(`.${quadrant}`);
+
+  // Check if there's already a UL for tasks in the quadrant, otherwise create one
+  let taskList = quadrantDiv.querySelector('ul');
+  if (!taskList) {
+    taskList = document.createElement('ul');
+    taskList.classList.add('task-list');
+    quadrantDiv.appendChild(taskList);
+  }
+
+  // Create a new list item with a checkbox for the task
+  const taskItem = document.createElement('li');
+  taskItem.classList.add('task-item');
+
+  const checkbox = document.createElement('input');
+  checkbox.type = 'checkbox';
+  checkbox.classList.add('task-checkbox');
+
+  const taskLabel = document.createElement('label');
+  taskLabel.textContent = taskDetails;
+  taskLabel.classList.add('task-label');
+
+  // Append checkbox and label to the task item
+  taskItem.appendChild(checkbox);
+  taskItem.appendChild(taskLabel);
+
+  // Append the new task item to the task list
+  taskList.appendChild(taskItem);
+
+  // Clear the input form after submission
+  document.getElementById('taskInput').value = '';
+  document.getElementById('taskDate').value = '';
+  document.getElementById('taskTime').value = '';
+  closePopup(); // Optional: Close the popup after submitting
+}
