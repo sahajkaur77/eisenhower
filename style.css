@@ -100,13 +100,13 @@ h1 {
 
 /* Style for the task list to align items to the left */
 .task-list {
-  list-style-type: none;      /* Remove bullet points */
-  padding: 0 10px;            /* Padding for alignment */
-  margin: 0;                  /* Remove margin */
-  max-height: 100%;           /* Allow task list to grow within quadrant */
-  overflow-y: auto;           /* Enable vertical scrolling */
-  width: 100%;                /* Take full width of the quadrant */
-  flex-grow: 1;               /* Expand to use available space */
+  list-style-type: none; /* Remove bullet points */
+  padding: 0 10px; /* Padding for alignment */
+  margin: 0; /* Remove margin */
+  max-height: 100%; /* Allow task list to grow within quadrant */
+  overflow-y: auto; /* Enable vertical scrolling */
+  width: 100%; /* Take full width of the quadrant */
+  flex-grow: 1; /* Expand to use available space */
 }
 
 /* Optional: Add custom scrollbar styles */
@@ -177,8 +177,8 @@ h1 {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: x-large;}
-
+  font-size: x-large;
+}
 
 .popup {
   display: none;
@@ -302,4 +302,11 @@ h1 {
   border-radius: 5px;
   width: 150px;
 }
+.completed .task-label {
+  text-decoration: line-through;
+  color: #888;
+}
 
+.completed {
+  opacity: 0.7; /* Make completed tasks slightly faded */
+}

@@ -208,6 +208,14 @@ function addTaskToQuadrant() {
 
   // Append the new task item to the task list
   taskList.appendChild(taskItem);
+  checkbox.addEventListener('change', function () {
+    if (checkbox.checked) {
+      taskItem.classList.add('completed'); // Optional: Add a style for completed tasks
+      taskList.appendChild(taskItem); // Move to bottom
+    } else {
+      taskList.insertBefore(taskItem, taskList.firstChild); // Move back to top if unchecked
+    }
+  });
 
   // Clear the input form after submission
   document.getElementById('taskInput').value = '';
