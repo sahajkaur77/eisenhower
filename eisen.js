@@ -32,8 +32,8 @@ var element = document.getElementById('h12');
 element.innerHTML = 'Eisenhower Matrix';
 
 function showInputPopup() {
-  document.getElementById("inputPopup").style.display = "block";
-  document.getElementById("taskInput").focus(); // Focus on task input for easy typing
+  document.getElementById('inputPopup').style.display = 'block';
+  document.getElementById('taskInput').focus(); // Focus on task input for easy typing
 
   document.getElementById('inputPopup').style.animation =
     'popup-show 0.3s ease-in-out forwards';
@@ -236,4 +236,10 @@ document.addEventListener('keydown', function (event) {
     event.preventDefault(); // Prevent any default action for this key combination
     showInputPopup(); // Show the input popup
   }
+});
+document.querySelector('.calendar-icon').addEventListener('click', function () {
+  document.getElementById('taskDate').focus();
+});
+document.querySelector('.time-icon').addEventListener('click', function () {
+  document.getElementById('taskTime').focus();
 });
