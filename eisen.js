@@ -17,7 +17,7 @@
 
 // Check for OTP feature enabled or not
 var config = {
-  enableOTP: false,
+  enableOTP: true,
 };
 if (config.enableOTP) {
   loginForm.style.display = 'block'; // Show login form
