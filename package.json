@@ -1,4 +1,10 @@
 {
+  "name": "otp-app",
+  "version": "1.0.0",
+  "main": "otp.js",
+  "scripts": {
+    "start": "node otp.js"
+  },
   "dependencies": {
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",

@@ -9,7 +9,7 @@
 //       loginForm.style.display = 'block'; // Show login form
 //       eisenhowerMatrix.style.display = 'none'; // Hide matrix
 //     } else {
-//       loginForm.style.display = 'none'; // Hide login form
+//       loginForm.style.display = 'none'; // Hide login forms
 //       eisenhowerMatrix.style.display = 'flex'; // Show matrix
 //     }
 //   })
@@ -17,7 +17,7 @@
 
 // Check for OTP feature enabled or not
 var config = {
-  enableOTP: true,
+  enableOTP: false,
 };
 if (config.enableOTP) {
   loginForm.style.display = 'block'; // Show login form
@@ -27,7 +27,6 @@ if (config.enableOTP) {
   eisenhowerMatrix.style.display = 'flex'; // Show matrix
 }
 // Above block needs to be removed when running live
-
 var element = document.getElementById('h12');
 element.innerHTML = 'Eisenhower Matrix';
 
@@ -118,45 +117,52 @@ async function sendOTP() {
   console.log('Phone number provided is: ' + phoneNumber);
 
   try {
-    const response = await fetch('http://localhost:3000/send-otp', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ phoneNumber }),
-    });
+    const response = await fetch(
+      'https://otp-app-440814.de.r.appspot.com/send-otp',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ phoneNumber }),
+      }
+    );
 
     const data = await response.json();
     console.log(data);
 
     if (data.success) {
-      alert('OTP sent!');
+      document.getElementById('loginForm').style.display = 'none'; // Hide login form
+      document.getElementById('eisenhowerMatrix').style.display = 'flex'; // Show matrix
     } else {
-      alert('Error sending OTP');
+      alert('Invalid OTP'); // You can keep this if you want an error message for invalid OTP
     }
   } catch (error) {
     console.error('Error:', error);
-    alert('An error occurred while sending the OTP.');
+    alert('An error occurred while verifying the OTP.'); // Optional: error message
   }
 }
-
 async function verifyOTP() {
   const phoneNumber = document.getElementById('phone').value;
   const otp = document.getElementById('otp').value;
 
-  const response = await fetch('http://localhost:3000/verify-otp', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ phoneNumber, otp }),
-  });
+  const response = await fetch(
+    'https://otp-app-440814.de.r.appspot.com/verify-otp',
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ phoneNumber, otp }),
+    }
+  );
 
   const data = await response.json();
   if (data.success) {
     document.getElementById('loginForm').style.display = 'none';
     document.getElementById('eisenhowerMatrix').style.display = 'flex'; // Display matrix
-    alert('Login successful!');
   } else {
-    alert('Invalid OTP');
+    // Handle invalid OTP, e.g., display an error message or redirect to login page
+    console.error('Invalid OTP');
+    // You might want to add a visual indicator or message to the user here
   }
 }
 
@@ -167,7 +173,6 @@ function addTaskToQuadrant() {
   const taskDetails = document.getElementById('taskInput').value;
   const taskDate = document.getElementById('taskDate').value; // Ensure we're using `.value`
   const taskTime = document.getElementById('taskTime').value; // Ensure we're using `.value`
-
 
   // Ensure task details are not empty
   if (taskDetails.trim() === '') {
@@ -197,7 +202,6 @@ function addTaskToQuadrant() {
   const taskLabel = document.createElement('label');
   taskLabel.textContent = taskDetails;
   taskLabel.classList.add('task-label');
-
 
   const dateTimeSpan = document.createElement('span');
   dateTimeSpan.textContent = `${taskDate} ${taskTime}`;

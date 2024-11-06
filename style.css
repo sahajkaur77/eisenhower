@@ -27,7 +27,7 @@
 #loginForm button {
   width: 100%;
   padding: 8px;
-  background-color: #4caf50;
+  background-color: #171a17;
   color: white;
   border: none;
   border-radius: 4px;
@@ -35,7 +35,7 @@
 }
 
 #loginForm button:hover {
-  background-color: #45a049;
+  background-color: #1d231d;
 }
 
 /* body {
@@ -64,6 +64,7 @@ h1 {
 
 /* Matrix container setup for 2x2 grid layout */
 .matrix-container {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr; /* Two columns */
   grid-template-rows: 1fr 1fr; /* Two rows */
@@ -91,11 +92,25 @@ h1 {
 .quadrant-heading {
   text-align: center;
   font-size: 1.2em;
-  font-weight: bold;
   font-family: Verdana, sans-serif;
   width: 100%; /* Ensures it spans the width of the quadrant */
   margin: 0; /* Remove default margin */
   padding-bottom: 10px; /* Space below heading */
+}
+.urgent-important .quadrant-heading {
+  color: #2c54d8; /* Red for Urgent & Important */
+}
+
+.important-not-urgent .quadrant-heading {
+  color: #f4c10a; /* Blue for Important, Not Urgent */
+}
+
+.urgent-not-important .quadrant-heading {
+  color: #585a66; /* Orange for Urgent, Not Important */
+}
+
+.not-urgent-not-important .quadrant-heading {
+  color: #08cddb; /* Green for Not Urgent, Not Important */
 }
 
 /* Style for the task list to align items to the left */
@@ -169,11 +184,12 @@ h1 {
 
 .add-button {
   position: absolute;
-  top: 55%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: black;
   color: white;
+  z-index: 100;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
