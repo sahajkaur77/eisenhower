@@ -17,7 +17,7 @@
 
 // Check for OTP feature enabled or not
 var config = {
-  enableOTP: false,
+  enableOTP: true,
 };
 if (config.enableOTP) {
   loginForm.style.display = 'block'; // Show login form
@@ -132,10 +132,9 @@ async function sendOTP() {
     console.log(data);
 
     if (data.success) {
-      document.getElementById('loginForm').style.display = 'none'; // Hide login form
-      document.getElementById('eisenhowerMatrix').style.display = 'flex'; // Show matrix
+      alert('OTP sent!');
     } else {
-      alert('Invalid OTP'); // You can keep this if you want an error message for invalid OTP
+      alert('Error sending OTP');
     }
   } catch (error) {
     console.error('Error:', error);
